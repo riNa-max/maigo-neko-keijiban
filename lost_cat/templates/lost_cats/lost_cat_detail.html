@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lost_cat_detail.css' %}">
+{% endblock %}
+
+{% block title %}{{ lost_cat.get_status_display }}の情報詳細{% endblock %}
+
+{% block content %}
+<p class="sub-title">{{ lost_cat.get_status_display }}情報詳細</p>
+<div class="wrapper-container">   
+    <div class="container">
+        {% load static %}
+
+        <div class="img-box">
+            {% if lost_cat.photo %}
+                <img src="{{ lost_cat.photo.url }}" alt="写真" class="thumbnail">
+            {% else %}
+                <img src="{% static 'images/no-image.jpg' %}" alt="写真">
+            {% endif %}
+        
+            {% if lost_cat.photo2 %}
+                <img src="{{ lost_cat.photo2.url }}" alt="写真" class="thumbnail">
+            {% else %}
+                <img src="{% static 'images/no-image.jpg' %}" alt="写真">
+            {% endif %}
+        
+            {% if lost_cat.photo3 %}
+                <img src="{{ lost_cat.photo3.url }}" alt="写真" class="thumbnail">
+            {% else %}
+                <img src="{% static 'images/no-image.jpg' %}" alt="写真">
+            {% endif %}
+        </div>
+        <p class="name">{{ lost_cat.name }}</p>
+        <div class="important-info">
+            <div class="date">
+                <img src="{% static 'images/clock.png' %}" alt="">
+                <p>{{ lost_cat.get_lost_datetime_display }}</p>
+            </div>
+            <div class="map">
+                <img src="{% static 'images/map.png' %}" alt="">
+                <p>{{ lost_cat.lost_location |default:"未登録" }}</p>
+            </div>
+        </div>
+        <div class="age">
+            <p class="band">年齢</p>
+            <p>{{ lost_cat.age_years }}歳{{ lost_cat.age_months }}か月</p>
+        </div>
+        <div class="sex">
+            <p class="band">性別</p>
+            <p>{{ lost_cat.get_sex_display }}</p>
+        </div>
+        <div class="description">
+            <p class="band">特徴</p>
+            <ul>
+                <li>{{ lost_cat.description1 }}</li>
+                <li>{{ lost_cat.description2 }}</li>
+                <li>{{ lost_cat.description_collar }}</li>
+                <li>{{ lost_cat.description_eye }}</li>
+            </ul>
+        </div>
+        <div class="edit-btn"><a href="{% url 'lost_cat_edit' pk=lost_cat.pk %}">編集</a></div>
+        <div class="back-btn"><a href="{% url 'myaccount' %}">戻る</a></div>
+    </div>
+</div>
+{% endblock %}

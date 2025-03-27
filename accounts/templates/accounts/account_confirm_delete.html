@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account_confirm_delete.css' %}">
+{% endblock %}
+
+{% block title %}アカウント削除確認 - mo-rusu{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container">
+        <h2>アカウント削除確認</h2>
+        <p>※このユーザーに関するデータはすべて削除され、復元することはできません</p>
+        <div class="btn-box">
+            <div class="cancel-btn"><a href="{% url 'myaccount' %}">キャンセル</a></div>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">削除する</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

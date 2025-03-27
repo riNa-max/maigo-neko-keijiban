@@ -1,0 +1,26 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    margin: 0;
+    text-align: center;
+}
+
+p{
+    color: #4B4B4B;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper{
+        height: 92vh;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    p{
+        font-size: 14px;
+    }
+}

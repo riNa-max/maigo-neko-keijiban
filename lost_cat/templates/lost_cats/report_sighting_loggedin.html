@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/report_sighting_guest_loggedin.css' %}">
+{% endblock %}
+
+{% block title %}目撃情報登録 - mo-rusu{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="form-container">
+        <h2 class="sub-title">目撃情報の登録</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="{{ form.lost_datetime.id_for_label }}">
+                    見かけた日時
+                    <span class="{% if form.lost_datetime.field.required %}required-tag{% else %}optional-tag{% endif %}">
+                        {% if form.lost_datetime.field.required %}必須{% else %}任意{% endif %}
+                    </span>
+                </label>
+                <div>
+                    {{ form.lost_datetime }}
+                </div>
+                
+            </div>
+    
+            <div class="form-group">
+                <label for="{{ form.lost_location.id_for_label }}">
+                    見かけた場所
+                    <span class="{% if form.lost_location.field.required %}required-tag{% else %}optional-tag{% endif %}">
+                        {% if form.lost_location.field.required %}必須{% else %}任意{% endif %}
+                    </span>
+                </label>
+                <div>
+                    {{ form.lost_location }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.situation.id_for_label }}">
+                    見かけた際の状況・様子
+                    <span class="{% if form.situation.field.required %}required-tag{% else %}optional-tag{% endif %}">
+                        {% if form.situation.field.required %}必須{% else %}任意{% endif %}
+                    </span>
+                </label>
+                <div>
+                    {{ form.situation }}
+                </div>
+            </div>
+            
+            <div class="form-group photo-group">
+                <label for="id_photo">
+                    写真
+                    {% if form.photo.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>               
+                <div>
+                    {{ form.photo }}
+                </div>
+                <div>
+                    {{ form.photo2 }}
+                </div>
+                <div>
+                    {{ form.photo3 }}
+                </div>
+            </div>
+
+            <p class="info">※いずれかをご入力いただいた場合、後日、飼い主からご連絡をさせていただきます</p>
+
+            <div class="form-group">
+                <label for="{{ form.phone_number.id_for_label }}">
+                    連絡用の電話番号
+                    {% if form.photo.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                {{ form.phone_number }}
+                <label for="{{ form.email.id_for_label }}">
+                    連絡用のメールアドレス
+                    {% if form.photo.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                {{ form.email }}
+            </div>
+            
+            <button type="submit" class="btn">登録</button>
+            <div class="back-btn"><a href="{% url 'sighting_list' %}">戻る</a></div>
+        </form>
+    </div>
+</div>
+{% endblock %}

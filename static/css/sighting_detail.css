@@ -1,0 +1,79 @@
+/* 全体 */
+.wrapper{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    border-radius: 7px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: #4B4B4B;
+}
+
+.sub-title{
+    color: #4B4B4B;
+    border-bottom: 1px solid #4B4B4B;
+    width: 80%;
+    margin: 30px auto;
+}
+
+/* フォーム全体 */
+.container{
+    width: 85%;
+    margin: auto;
+}
+
+.date,.map,.situation,.img-box,.phone_number{
+    margin-bottom: 20px;
+}
+
+/* 画像詳細 */
+.img-box{
+    display: flex;
+    justify-content: space-around;
+}
+
+.img-box img{
+    width: 30%;
+    height: 20vw;
+}
+
+.thumbnail {
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/* 帯 */
+.band{
+    background-color: #BCCDE5;
+    color: white;
+    width: 100%;
+    padding: 5px 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* 戻るボタン */
+.back-btn{
+    background-color: white;
+    border-radius: 7px;
+    padding:10px 20px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #3F82ED;
+    margin-top: 60px;
+}
+
+.back-btn a {
+    color: #3F82ED;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn a:hover {
+    text-decoration: underline;
+}

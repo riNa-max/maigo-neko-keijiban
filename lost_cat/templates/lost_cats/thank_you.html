@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/thank_you.css' %}">
+{% endblock %}
+
+{% block title %}情報提供ありがとう{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="content">
+        <p>ご協力ありがとうございました！</p>
+        <p>責任をもって提供していただいた情報をお届けします！</p>
+    </div>
+</div>
+{% endblock %}

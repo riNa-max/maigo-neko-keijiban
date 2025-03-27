@@ -1,0 +1,195 @@
+/* --- 全体のスタイル --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #BCCDE5;
+}
+.wrapper{
+    margin-top: 70px;
+    margin-bottom: 70px;
+    color: #4B4B4B;
+}
+
+.sub-title{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* ヘッダー */
+.guest-header{
+    background-color: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-header p{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    color: #4B4B4B;
+}
+
+/* --- フッター --- */
+footer{
+    background-color: #3F82ED;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer p{
+    color: white;
+}
+
+/* フォームコンテナ */
+.form-container {
+    background: #fff;
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+    width: 80%;
+    margin: auto;
+}
+
+/* フォーム全体 */
+.form-container form{
+    width: 80%;
+    margin: 35px auto;
+}
+
+.form-container .form-group{
+    margin-bottom: 35px;
+}
+
+/* フォーム内の各入力フィールド */
+.form-container label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border: 2px solid #3F82ED;
+}
+
+/* タグ */
+.required-tag {
+    color: #4B4B4B;
+    font-size: 14px;
+    margin-left: 5px;
+    background-color: #FBDD3F;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-weight: normal;    
+}
+
+.optional-tag {
+    color: gray;
+    font-size: 14px;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+/* 登録ボタン */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3F82ED;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #2C6DC1;
+}
+
+/* 戻るボタン */
+.back-btn{
+    background-color: white;
+    border-radius: 7px;
+    padding:10px 20px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #3F82ED;
+}
+
+.back-btn a {
+    color: #3F82ED;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    /* フォーム全体のデザイン */
+    .wrapper {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    /* フォーム全体 */
+    .form-container form{
+        width: 90%;
+    }
+    /* フォームコンテナ */
+    .form-container {
+        width: 90%;
+    }
+    /* 見出し */
+    .form-container h2 {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .guest-header p{
+        font-size: 1.25em;
+    }
+}
+
+@media (max-width: 430px) {
+    /* フォーム全体 */
+    .form-container form{
+        width: 100%;
+        margin: 0;
+    }
+    html,.form-container input, .form-container select, .form-container textarea, .form-container button{
+        font-size: 14px;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+    .guest-header p{
+        font-size: 1em;
+    }
+}

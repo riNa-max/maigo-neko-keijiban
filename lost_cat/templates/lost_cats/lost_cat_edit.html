@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lost_cat_edit_add.css' %}">
+{% endblock %}
+
+{% block title %}迷子猫情報編集 - mo-rusu{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="form-container">
+        <h2>登録内容を変更する</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            <div class="form-group">
+                <label for="id_status">
+                    状態
+                    {% if form.status.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+
+                <div class="radio-group">
+                    {% for radio in form.status %}
+                        <div class="radio-item">
+                            {{ radio.tag }}
+                            <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_name">
+                    名前
+                    {% if form.name.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                {{ form.name }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_lost_datetime">
+                    迷子になった日時
+                    {% if form.lost_datetime.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                <div class="datetime-group">
+                    {{ form.lost_datetime }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_lost_location">
+                    迷子になった場所
+                    {% if form.lost_location.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                <div>
+                    {{ form.lost_location }}
+                </div>
+            </div>
+
+            <div class="form-group photo-group">
+                <label for="id_photo">
+                    写真
+                    {% if form.photo.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>               
+                <div>
+                    <p>・正面からのねこの顔（横顔でも可）</p>
+                    {{ form.photo }}
+                </div>
+                <div>
+                    <p>・ねこの体全体（色や体系がわかるもの）</p>
+                    {{ form.photo2 }}
+                </div>
+                <div>
+                    <p>・ねこの特徴的な部分</p>
+                    {{ form.photo3 }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_age_years">
+                    年齢
+                    {% if form.sex.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                <div class="age-group">
+                    <div class="age-item">
+                        {{ form.age_years }}
+                        <span>歳</span>
+                    </div>
+                    <div class="age-item">
+                        {{ form.age_months }}
+                        <span>ヶ月</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="id_sex">
+                    性別
+                    {% if form.sex.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                {{ form.sex }}
+            </div>
+
+            <div class="form-group description-collar-group">
+                <label for="id_description_collar">
+                    特徴（首輪）
+                    {% if form.description_collar.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                {{ form.description_collar }}
+            </div>
+        
+            <div class="form-group description-eye-group">
+                <label for="id_description_eye">
+                    特徴（目）
+                    {% if form.description_eye.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                {{ form.description_eye }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_description">
+                    特徴（その他）
+                    {% if form.description1.field.required %}
+                        <span class="required-tag">必須</span>
+                    {% else %}
+                        <span class="optional-tag">任意</span>
+                    {% endif %}
+                </label>
+                <div class="description-group">
+                    <ul>
+                        <li>{{ form.description1 }}</li>
+                        <li>{{ form.description2 }}</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <button type="submit">保存</button>
+            <div class="back-btn"><a href="{% url 'lost_cat_detail' pk=lost_cat.pk %}">戻る</a></div>
+        </form>
+    </div>
+</div>
+{% endblock %}

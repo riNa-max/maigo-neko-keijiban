@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/resolved_list.css' %}">
+{% endblock %}
+
+{% block title %}解決報告確認画面{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <h2>見つかった子たち一覧</h2>
+        <p class="thanks-text">無事、おうちに帰ることができました。ご協力ありがとうございました！</p>
+    
+        <div class="content-wrapper">
+            {% for cat in resolved_cats %}
+                <div class="content-box">
+                    <img src="{{ cat.photo.url }}" alt="{{ cat.name }}">
+                    <p>{{ cat.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lost_cat_poster.css' %}">
+{% endblock %}
+
+{% block title %}迷子・保護チラシ作成 - mo-rusu{% endblock %}
+
+{% block content %}
+
+<h2>チラシ作成</h2>
+
+<div class="wrapper">
+    <div class="poster-container">
+        <div class="poster-img-container">
+            <img src="{% static 'images/poster_sample.png' %}" alt="" class="poster-img">
+        </div>
+        <div class="btn-download"><a href="{% url 'generate_poster' lost_cat.id %}">ダウンロード</a></div>
+        <div class="btn-edit"><a href="{% url 'myaccount' %}">チラシ内容の編集</a></div>
+    </div>
+    <div class="btns-container">
+        <p class="sub-title">ダウンロード後の印刷方法</p>
+        <div class="print-button">
+            <a href="https://www.printing.ne.jp/index_p.html" class="print-link" target="_blank" rel="noopener noreferrer">
+                <span>セブンイレブンで印刷</span>
+                <img src="{% static 'images/yajirushi.png' %}" alt="矢印アイコン">
+            </a>
+        </div>
+        <div class="print-button">
+            <a href="https://networkprint.ne.jp/sharp_netprint/ja/top.aspx" class="print-link" target="_blank" rel="noopener noreferrer">
+                <span>ローソン・ファミリーマートで印刷</span>
+                <img src="{% static 'images/yajirushi.png' %}" alt="矢印アイコン">
+            </a>
+        </div>
+        <div class="print-button">
+            <a href="https://raksul.com/" class="print-link" target="_blank" rel="noopener noreferrer">
+                <span>ラクスルで印刷</span>
+                <img src="{% static 'images/yajirushi.png' %}" alt="矢印アイコン">
+            </a>
+        </div>
+        <div class="print-delegate-button">
+            <a href="#" class="print-delegate-link">
+                <div class="print-delegate-tetx">
+                    <span>印刷の代行を依頼する</span>
+                    <span class="annotation-text">※申し込みフォームの入力のみで、面倒な操作不要。<br>ご自宅にポスターをご郵送します</span>
+                </div>
+                <img src="{% static 'images/yajirushi.png' %}" alt="矢印アイコン">
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

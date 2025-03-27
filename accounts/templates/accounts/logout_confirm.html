@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/logout_confirm.css' %}">
+{% endblock %}
+
+{% block title %}ログアウト確認画面{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="logout-confirm-container">
+        <h2>ログアウト確認</h2>
+        <p>本当にログアウトしますか？</p>
+        <div class="btn-box">
+            <div class="cancel-btn"><a href="{% url 'myaccount' %}">キャンセル</a></div>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">ログアウト</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

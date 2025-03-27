@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}迷子・保護猫掲示板-にゃんチーズ{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="{% if user.is_authenticated %}logged-in{% else %}guest{% endif %}">
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="{% url 'home' %}">にゃんチーズ</a></div>
+            <ul class="nav-links">
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'home' %}">迷子ねこマニュアル</a></li>
+                    <li><a href="{% url 'sighting_list' %}">目撃情報一覧</a></li>
+                    {% if lost_cat %}
+                        <li><a href="{% url 'lost_cat_poster' lost_cat.id %}">ポスター作成</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'myaccount' %}">登録情報</a></li>
+                    {% if lost_cat %}
+                        <li><a href="{% url 'confirm_resolved' cat_id=lost_cat.id %}">解決報告</a></li>
+                    {% endif %}
+                    </form>
+                {% else %}
+                    <li><a href="{% url 'signup' %}">迷子・保護を捜す</a></li>
+                    <li><a href="resolved_list">解決した子一覧</a></li>
+                    <li><a class="report-button" href="{% url 'signup' %}">新規登録する</a></li>
+                    <li><a class="report-button2" href="{% url 'login' %}">ログインする</a></li>
+                {% endif %}
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+    </header>
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>© 2025 mo-rusu. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

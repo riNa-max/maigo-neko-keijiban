@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/confirm_resolved.css' %}">
+{% endblock %}
+
+{% block title %}解決報告確認画面{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container">
+        <h2>解決報告を確認</h2>
+        <p>※このユーザー情報・迷子猫情報のデータはすべて削除され、猫の写真とお名前が「解決した子一覧」に表示されます</p>
+        <div class="btn-box">
+            <div class="cancel-btn"><a href="{% url 'home' %}">キャンセル</a></div>
+            <form method="post" action="{% url 'report_resolved' cat_id=lost_cat.id %}">
+                {% csrf_token %}
+                <button type="submit" class="resolved-btn">解決報告する</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

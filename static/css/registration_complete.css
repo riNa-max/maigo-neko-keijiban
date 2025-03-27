@@ -1,0 +1,81 @@
+/* --- 全体のスタイル --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #BCCDE5;
+}
+
+.wrapper{
+    height: 100vh;
+}
+
+/* --- フッター --- */
+footer{
+    background-color: #3F82ED;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer p{
+    color: white;
+}
+
+/* フォーム全体のデザイン */
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 150px;
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 5px;
+}
+
+h2,p{
+    color: #4B4B4B;
+}
+
+/* ボタンのデザイン */
+.next-register-btn{
+    background-color: #3F82ED;
+    border-radius: 7px;
+    padding:10px 0px;
+    margin-top: 30px;
+}
+
+.next-register-btn a{
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.next-register-btn:hover {
+    background-color: #295BB8;
+}
+
+@media (max-width: 430px) {
+    /* 全体のデザイン */
+    .container {
+        max-width: 90%;
+        margin-top: 70px;
+    }
+    html,.next-register-btn a{
+        font-size: 14px;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+}

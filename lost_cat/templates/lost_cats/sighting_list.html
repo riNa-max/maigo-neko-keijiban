@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sighting_list.css' %}">
+{% endblock %}
+
+{% block title %}目撃情報一覧 - mo-rusu{% endblock %}
+
+{% block content %}
+
+<h2>目撃情報一覧</h2>
+
+<div class="wrapper">
+    <p class="sub-title">目撃情報</p>
+    <div class="sighting-wrapper">
+        <div class="add-btn">
+            {% for lost_cat in lost_cats %}
+                {% if user.is_authenticated %}
+                    <a href="{% url 'report_sighting_loggedin' lost_cat.id %}">
+                        ＋目撃情報を追加する
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="sighting-list">
+            <ul>
+                {% for sighting in sightings %}
+                <li class="sighting-item">
+                    <a href="{% url 'sighting_detail' sighting.pk %}" class="sighting-link">
+                        <div class="flex">
+                            <div class="sighting-icon">
+                                <img src="{% static 'images/nikukyu.png' %}" alt="肉球アイコン" class="mid-icon">
+                            </div>
+                            <div class="sighting-info">
+                                <div class="sighting-time flex">
+                                    <img src="{% static 'images/clock.png' %}" alt="時計アイコン" class="small-icon">
+                                    <p>{{ sighting.get_lost_datetime_display }}</p>
+                                </div>
+                                <div class="sighting-location flex">
+                                    <img src="{% static 'images/map.png' %}" alt="地図アイコン" class="small-icon">
+                                    <p>{{ sighting.lost_location  |default:"未登録" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {% empty %}
+                    <p>目撃情報がありません。</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

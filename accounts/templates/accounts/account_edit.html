@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account_edit.css' %}">
+{% endblock %}
+
+{% block title %}アカウント情報編集{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="form-container">
+        <h2>登録内容を変更する</h2>
+        <form method="post" class="update-form">
+            {% csrf_token %}
+    
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small class="help-text">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                    <p class="error-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+    
+            <button type="submit" class="btn">変更を保存</button>
+        </form>
+        <div class="back-btn"><a href="{% url 'myaccount' %}">戻る</a></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,121 @@
+.wrapper{
+    height: 100vh;
+}
+
+/* フォーム全体を中央配置 */
+.form-container {
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #4B4B4B;
+}
+
+/* フォームタイトル */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 各フォーム要素のスタイル */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* ラベルのスタイル */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 入力フィールドのスタイル */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border: 2px solid #3F82ED;
+}
+
+/* ヘルプテキスト */
+.help-text {
+    font-size: 12px;
+    color: #666;
+}
+
+/* エラーメッセージ */
+.error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* 送信ボタン */
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3F82ED;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2C6DC1;
+}
+
+/* キャンセルリンク */
+.back-btn{
+    background-color: white;
+    border-radius: 7px;
+    padding:10px 20px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    border: 1px solid #3F82ED;
+}
+
+.back-btn a {
+    color: #3F82ED;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 820px) {
+    /* フォーム全体を中央配置 */
+    .form-container {
+        margin: 100px auto;
+    }
+}
+
+@media (max-width: 430px) {
+    /* フォーム全体のデザイン */
+    .form-container {
+        max-width: 90%;
+        margin: 70px auto;
+    }
+    html,.back-btn a,button{
+        font-size: 14px;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+}

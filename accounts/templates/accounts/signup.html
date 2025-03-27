@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block title %}新規登録{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>新規登録</h2>
+    <form method="post" class="registration-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">登録</button>
+    </form>
+    <p class="login-link">
+        <a href="{% url 'login' %}">すでにアカウントをお持ちですか？ <br>ログインはこちら</a>
+    </p>
+</div>
+{% endblock %}

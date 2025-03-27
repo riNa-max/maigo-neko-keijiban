@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block title %}にゃんチーズ{% endblock %}
+
+{% block content %}
+    <h2>迷子ねこチラシ作成ステップマップ</h2>
+
+    <div class="wrapper">
+        <div class="intro-box">
+            <div class="intro-img">
+                <img src="{% static 'images/cat.png' %}" alt="">
+            </div>
+            <div class="intro-text">
+                <p>ねこを見つけるために…</p>
+                <p>チラシを作成して、目撃情報を集めよう！</p>
+                <p>
+                    迷子ねこは多くの場合、お家の付近で隠れています.。<br>
+                    そのため、一番大切なのは 「目撃情報」 を集めること。<br>
+                    猫を見かけた人がいち早く気づけるように、 チラシを作成してポスティングしましょう。
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="text">
+                <p>ステップ1</p>
+                <p>迷子ねこ情報をすべて登録しよう</p>
+                <p>
+                    「我が家のねこが迷子になっている」「ねこを見つけたらこうしてほしい」とお知らせするために、できるだけ多くの項目を埋めましょう
+                </p>
+            </div>
+            <div class="btn"><a href="{% url 'myaccount' %}">登録情報を確認する</a></div>
+        </div>
+
+        <div class="box">
+            <div class="text">
+                <p>ステップ2</p>
+                <p>チラシをダウンロード、印刷しよう</p>
+                <p>
+                    登録内容をもとにチラシが自動で作成されるので、ダウンロードします。<br><br>
+
+                    ・完全室内飼いの場合、150～200枚<br>
+                    ・自由外出飼いの場合、4000枚<br><br>
+
+                    を目安に印刷をしましょう。
+                </p>
+            </div>
+            <div class="btn"><a href="{% url 'lost_cat_poster' lost_cat.id %}">チラシをダウンロード・印刷する</a></div>
+        </div>
+
+        <div class="box">
+            <div class="text">
+                <p>ステップ3</p>
+                <p>チラシを広い範囲にポスティングしよう</p>
+                <p>
+                    ・完全室内飼いの場合、家の周囲半径100m<br>
+                    ・自由外出飼いの場合、家の周囲半径500m<br><br>
+
+                    を目安に全戸にポスティングしましょう。<br><br>
+
+                    また商店街やコンビニの掲示板、動物病院などにもチラシの貼り出しを依頼してみましょう。<br><br>
+
+                    ※早朝・深夜のポスティングはNG<br>
+                    ※アパート・マンションにポスティングする場合は、管理人に許可を取りましょう<br>
+                    ※電柱などに無断で貼り出すと条例違反等のトラブルに繋がりますので控えてください
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="text">
+                <p>ステップ4</p>
+                <p>目撃情報を確認・登録しよう</p>
+                <p>
+                    チラシのQRから寄せられた目撃情報は自動でこのアプリに保存されます。<br>
+                    電話やメールで寄せられた際は「目撃情報一覧」に内容を登録しましょう。
+                </p>
+            </div>
+            <div class="btn"><a href="{% url 'sighting_list' %}">目撃情報一覧を確認する</a></div>
+        </div>
+
+    </div>
+{% endblock %}

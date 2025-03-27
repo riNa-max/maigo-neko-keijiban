@@ -1,0 +1,102 @@
+.form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #4B4B4B;
+    text-align: center;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.registration-form label {
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #4B4B4B; 
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.registration-form input:focus,
+.registration-form select:focus,
+.registration-form textarea:focus {
+    border-color: #3F82ED;
+    outline: none;
+}
+
+.btn {
+    background-color: #3F82ED;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #295BB8;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.login-link a {
+    color: #3F82ED;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.registration-form .helptext{
+    font-size: 0.6875rem;
+    color: #4B4B4B;
+    
+}
+
+/* フォームエラーメッセージ */
+.errorlist li{
+    color: red;
+    list-style: none;
+}
+
+@media (max-width: 430px) {
+    /* フォーム全体のデザイン */
+    .form-container {
+        max-width: 90%;
+        margin: 70px auto;
+    }
+    html,.login-link a{
+        font-size: 14px;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+}

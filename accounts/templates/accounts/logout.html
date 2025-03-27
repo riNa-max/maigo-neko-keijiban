@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/logout.css' %}">
+{% endblock %}
+
+{% block title %}ログアウト{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container">
+        <h2>ログアウトしました</h2>
+        <div class="login-btn"><a href="{% url 'login' %}">再度ログインする</a></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}">
+{% endblock %}
+
+{% block title %}アカウント情報 - mo-rusu{% endblock %}
+
+{% block content %}
+
+    <h2>登録情報</h2>
+
+    <div class="cat-info-container">
+
+        <p class="sub-title">ねこ情報</p>
+
+        <div class="cat-info-box flex">
+            <div class=" block-left">
+                <img src="{% static 'images/cat.png' %}" alt="" class="big-icon big-icon1">
+                <div class="tag">{{ lost_cat.get_status_display }}</div>
+            </div>
+            <div class="block-right">
+                <div class="detail-box">
+                    <p class="name">{{ lost_cat.name }}</p>
+                    <div class="flex detail">
+                        <div class="img-box"><img src="{% static 'images/clock.png' %}" alt="時計のアイコン" class="small-icon"></div>
+                        <p>{{ lost_cat.get_lost_datetime_display }}</p>
+                    </div>
+                    <div class="flex">
+                        <div class="img-box"><img src="{% static 'images/map.png' %}" alt="マップのアイコン" class="small-icon"></div>
+                        <p>{{ lost_cat.lost_location |default:"未登録"  }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn"><a href="{% url 'lost_cat_detail' pk=lost_cat.pk %}">猫情報詳細</a></div>
+
+    </div>
+
+    <div class="account-info-container">
+
+        <p class="sub-title">飼い主さん情報</p>
+
+        <div class="account-info-box flex">
+            <div class="block-left">
+                <img src="{% static 'images/human.png' %}" alt="アカウントのアイコン" class="big-icon big-icon2">
+            </div>
+            <div class="block-right">
+                <div class="detail-box">
+                    <p class="name">{{ user.username |default:"未登録" }}</p>
+                    <div class="flex detail">
+                        <div class="img-box"><img src="{% static 'images/phone.png' %}" alt="電話のアイコン" class="small-icon"></div>
+                        <p>{{ user.phone_number |default:"未登録" }}</p>
+                    </div>
+                    <div class="flex">
+                        <div class="img-box"><img src="{% static 'images/mail.png' %}" alt="メールのアイコン" class="small-icon"></div>
+                        <p>{{ user.email |default:"未登録" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn"><a href="{% url 'account_edit' %}">アカウント情報の変更</a></div>
+        <div class="btn"><a href="{% url 'logout_confirm' %}">ログアウト</a></div>
+        <div class="btn delete-btn"><a href="{% url 'delete_account' %}">登録情報をすべて削除する</a></div>
+
+    </div>
+
+{% endblock %}

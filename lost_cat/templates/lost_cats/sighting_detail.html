@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sighting_detail.css' %}">
+{% endblock %}
+
+{% block title %}目撃情報詳細{% endblock %}
+
+{% block content %}
+
+<p class="sub-title">目撃情報詳細</p>
+<div class="wrapper">   
+    <div class="container">
+        {% load static %}
+        <div class="date">
+            <p class="band">見かけた日時</p>
+            <p>{{ sighting.get_lost_datetime_display |default:"未登録" }}</p>
+        </div>
+        <div class="map">
+            <p class="band">見かけた場所</p>    
+            <p>{{ sighting.lost_location |default:"未登録" }}</p>
+        </div>
+        <div class="situation">
+            <p class="band">見かけた際の状況・様子</p>
+            <p>{{ sighting.situation |default:"未登録" }}</p>
+        </div>
+        <div class="photo">
+            <p class="band">写真</p>
+            <div class="img-box">
+                {% if sighting.photo %}
+                    <img src="{{ sighting.photo.url }}" alt="写真" class="thumbnail">
+                {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" alt="写真">
+                {% endif %}
+            
+                {% if sighting.photo2 %}
+                    <img src="{{ sighting.photo2.url }}" alt="写真" class="thumbnail">
+                {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" alt="写真">
+                {% endif %}
+            
+                {% if sighting.photo3 %}
+                    <img src="{{ sighting.photo3.url }}" alt="写真" class="thumbnail">
+                {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" alt="写真">
+                {% endif %}
+            </div>
+        </div>
+        <div class="phone_number">
+            <p class="band">連絡用の電話番号</p>
+            <p>{{ sighting.phone_number }}</p>
+        </div>
+        <div class="email">
+            <p class="band">連絡用のメールアドレス</p>
+            <p>{{ sighting.email }}</p>
+        </div>
+        <div class="back-btn"><a href="{% url 'sighting_list' %}">戻る</a></div>
+    </div>
+</div>
+
+{% endblock %}

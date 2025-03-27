@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}迷子・保護猫掲示板{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/registration_complete.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="{% if user.is_authenticated %}logged-in{% else %}guest{% endif %}">
+
+    <div class="wrapper">
+        <div class="container">
+            <h2>アカウント登録が完了しました</h2>
+            <p>引き続き、迷子猫の情報を登録してください。</p>
+            <p>※所要時間は最低１分程度です</p>
+            <div class="next-register-btn"><a href="{% url 'add_lost_cat' %}">迷子猫情報を登録する</a></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 mo-rusu. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

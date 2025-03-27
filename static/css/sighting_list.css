@@ -1,0 +1,80 @@
+/* タイトル */
+h2{
+    width: 80%;
+    margin: 50px auto;
+    color: #3F82ED;
+}
+
+.sub-title{
+    color: #4B4B4B;
+    border-bottom: 1px solid #4B4B4B;
+    margin-bottom: 30px;
+}
+
+/* 全体 */
+.wrapper{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+/* 目撃情報追加ボタン */
+.add-btn{
+    background-color: #3F82ED;
+    border-radius: 7px;
+    padding:10px 20px;
+    display: inline-block;
+    width: 200px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.add-btn a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.add-btn:hover {
+    background-color: #2C6DC1;
+}
+
+/* リストデザイン */
+.sighting-item{
+    list-style: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.small-icon{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.mid-icon{
+    width: 70px;
+}
+
+.flex{
+    display: flex;
+}
+
+.sighting-link{
+    text-decoration: none;
+    color: #4B4B4B;
+}
+
+.sighting-time{
+    margin-bottom: 7px;
+}
+
+.sighting-icon{
+    margin-right: 30px;
+}
+
+.sighting-info{
+    margin-top: 8px;
+}
