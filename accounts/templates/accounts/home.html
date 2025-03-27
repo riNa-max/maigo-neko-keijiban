@@ -51,7 +51,9 @@
                     を目安に印刷をしましょう。
                 </p>
             </div>
+            {% if lost_cat.id %}
             <div class="btn"><a href="{% url 'lost_cat_poster' lost_cat.id %}">チラシをダウンロード・印刷する</a></div>
+            {% endif %}
         </div>
 
         <div class="box">
