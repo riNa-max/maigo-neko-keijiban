@@ -23,6 +23,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [ALLOWED_HOST]
 
+CSRF_TRUSTED_ORIGINS=["https://maigo-neko-keijiban.onrender.com/"]
 
 # Application definition
 
