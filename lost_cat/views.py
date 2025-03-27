@@ -135,11 +135,11 @@ class SightingDetailView(LoginRequiredMixin, DetailView):
     def get_queryset(self):
         return SightingReport.objects.filter(lostcat__owner=self.request.user)
 
-FONT_PATH = "C:/Windows/Fonts/meiryo.ttc"
-pdfmetrics.registerFont(TTFont("Meiryo", FONT_PATH, subfontIndex=0))
+# FONT_PATH = "C:/Windows/Fonts/meiryo.ttc"
+# pdfmetrics.registerFont(TTFont("Meiryo", FONT_PATH, subfontIndex=0))
 
-FONT_PATH_BOLD = "C:/Windows/Fonts/meiryob.ttc"
-pdfmetrics.registerFont(TTFont("Meiryo-Bold", FONT_PATH_BOLD, subfontIndex=0))
+# FONT_PATH_BOLD = "C:/Windows/Fonts/meiryob.ttc"
+# pdfmetrics.registerFont(TTFont("Meiryo-Bold", FONT_PATH_BOLD, subfontIndex=0))
 
 NO_IMAGE_PATH = os.path.join(settings.BASE_DIR, "static/images/no-image.jpg")
 
@@ -215,7 +215,7 @@ class GenerateLostCatPosterView(View):
 
         # タイトル‐「猫」
         p.setFillColorRGB(1, 0.2196, 0.2196) 
-        p.setFont("Meiryo", 123) 
+        # p.setFont("Meiryo", 123) 
         p.drawString(40, height - 140, "猫") 
 
         # タイトル‐名前プレート
@@ -224,22 +224,22 @@ class GenerateLostCatPosterView(View):
 
         # タイトル‐「を探しています」
         p.setFillColorRGB(1, 0.219607843, 0.219607843)
-        p.setFont("Meiryo-Bold", 50)
+        # p.setFont("Meiryo-Bold", 50)
         p.drawString(170, height - 150, "を探しています")
 
         # タイトル‐「名前1」
         p.setFillColorRGB(0, 0, 0)
-        p.setFont("Meiryo", 12)
+        # p.setFont("Meiryo", 12)
         p.drawString(183, height - 58, "名")
 
         # タイトル‐「名前2」
         p.setFillColorRGB(0, 0, 0)
-        p.setFont("Meiryo", 12)
+        # p.setFont("Meiryo", 12)
         p.drawString(183.5, height - 78, "前")
 
         # タイトル-名前
         p.setFillColorRGB(0, 0, 0) 
-        p.setFont("Meiryo-Bold", 40)
+        # p.setFont("Meiryo-Bold", 40)
         p.drawString(208, height - 80, f"{lost_cat.name}")
 
         # 画像
@@ -260,7 +260,7 @@ class GenerateLostCatPosterView(View):
             img = ImageReader(icon_location)
             p.drawImage(img, 270, height - 540, width=16.27, height=18, mask="auto")
         p.setFillColorRGB(0, 0, 0)
-        p.setFont("Meiryo", 14)
+        # p.setFont("Meiryo", 14)
         p.drawString(292, height - 537, f"{lost_cat.lost_location}")
 
         # **迷子になった日時**
@@ -269,7 +269,7 @@ class GenerateLostCatPosterView(View):
             img = ImageReader(icon_clock)
             p.drawImage(img, 41, height - 540, width=16.27, height=18, mask="auto")
         p.setFillColorRGB(0, 0, 0)
-        p.setFont("Meiryo", 14)
+        # p.setFont("Meiryo", 14)
         p.drawString(63, height - 537, f"{lost_datetime_str}")
 
         # 性別
@@ -277,12 +277,12 @@ class GenerateLostCatPosterView(View):
         p.roundRect(41, height - 598, 90, 40, 20, fill=True, stroke=False)
 
         p.setFillColorRGB(0, 0, 0) 
-        p.setFont("Meiryo", 20)
+        # p.setFont("Meiryo", 20)
         p.drawString(66, height - 586, "性別")
 
         sex_display = lost_cat.get_sex_display()
         p.setFillColorRGB(0, 0, 0) 
-        p.setFont("Meiryo-Bold", 20)
+        # p.setFont("Meiryo-Bold", 20)
         p.drawString(143, height - 586, f"{sex_display}")
 
         # 年齢
@@ -290,11 +290,11 @@ class GenerateLostCatPosterView(View):
         p.roundRect(312, height - 598, 90, 40, 20, fill=True, stroke=False)
 
         p.setFillColorRGB(0, 0, 0) 
-        p.setFont("Meiryo", 20)
+        # p.setFont("Meiryo", 20)
         p.drawString(337, height - 586, "年齢")
 
         p.setFillColorRGB(0, 0, 0) 
-        p.setFont("Meiryo-Bold", 20)
+        # p.setFont("Meiryo-Bold", 20)
         p.drawString(414, height - 586, f"{ lost_cat.age_years }歳{ lost_cat.age_months }か月")
 
         # 特徴
@@ -302,10 +302,10 @@ class GenerateLostCatPosterView(View):
         p.roundRect(41, height - 649, 90, 40, 20, fill=True, stroke=False)
 
         p.setFillColorRGB(0, 0, 0) 
-        p.setFont("Meiryo", 20)
+        # p.setFont("Meiryo", 20)
         p.drawString(66, height - 637, "特徴")
 
-        p.setFont("Meiryo-Bold", 20)
+        # p.setFont("Meiryo-Bold", 20)
         p.drawString(143, height - 640, f"・{lost_cat.description1}")
         p.drawString(143, height - 663, f"・{lost_cat.description2}")
         p.drawString(143, height - 686, f"・{lost_cat.description_collar}")
@@ -316,7 +316,7 @@ class GenerateLostCatPosterView(View):
         p.rect(0, height - 756, width, 27, fill=True, stroke=False)
 
         p.setFillColorRGB(1, 1, 1)
-        p.setFont("Meiryo", 12)
+        # p.setFont("Meiryo", 12)
         p.drawString(76, height - 747, "情報提供のご協力よろしくお願いいたします※無理な捕獲・追走はご遠慮ください")
 
         # アカウント情報
@@ -324,11 +324,11 @@ class GenerateLostCatPosterView(View):
         p.rect(0, height - 842, width, 86, fill=True, stroke=False)
 
         p.setFillColorRGB(1, 0.219607843, 0.219607843)
-        p.setFont("Meiryo-Bold", 20)
+        # p.setFont("Meiryo-Bold", 20)
         p.drawString(27, height - 806, "連絡先")
 
         p.setFillColorRGB(0, 0, 0)
-        p.setFont("Meiryo-Bold", 14)
+        # p.setFont("Meiryo-Bold", 14)
         p.drawString(100, height - 789, f"{user.username}")
         p.drawString(100, height - 807, f"{user.phone_number}")
         p.drawString(100, height - 823, f"{user.email}")
@@ -341,11 +341,11 @@ class GenerateLostCatPosterView(View):
         p.drawImage(qr_image, qr_x, qr_y, width=qr_size, height=qr_size, mask="auto")
 
         p.setFillColorRGB(0, 0, 0)
-        p.setFont("Meiryo", 13)
+        # p.setFont("Meiryo", 13)
         p.drawString(325, height - 784, "QRコードから登録不要で")   
 
         p.setFillColorRGB(0, 0, 0)
-        p.setFont("Meiryo", 13)
+        # p.setFont("Meiryo", 13)
         p.drawString(325, height - 802, "情報提供いただけます")
 
         p.showPage()    
