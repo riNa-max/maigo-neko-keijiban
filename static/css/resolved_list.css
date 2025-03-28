@@ -5,12 +5,13 @@ h2{
     color: hsl(217, 83%, 59%);
 }
 
-.thanks-text{
+.thanks-text,.no-cats-message{
     width: 80%;
     margin: auto;
     color: #4B4B4B;
     
 }
+
 
 /* 迷子猫一覧 */
 .content-wrapper {

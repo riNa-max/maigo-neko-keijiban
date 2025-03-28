@@ -11,15 +11,20 @@
 {% block content %}
     <div class="wrapper">
         <h2>見つかった子たち一覧</h2>
-        <p class="thanks-text">無事、おうちに帰ることができました。ご協力ありがとうございました！</p>
-    
-        <div class="content-wrapper">
-            {% for cat in resolved_cats %}
-                <div class="content-box">
-                    <img src="{{ cat.photo.url }}" alt="{{ cat.name }}">
-                    <p>{{ cat.name }}</p>
-                </div>
-            {% endfor %}
-        </div>
+        {% if resolved_cats %}
+            <p class="thanks-text">無事、おうちに帰ることができました。ご協力ありがとうございました！</p>
+            <div class="content-wrapper">
+                {% for cat in resolved_cats %}
+                    <div class="content-box">
+                        <img src="{{ cat.photo.url }}" alt="{{ cat.name }}">
+                        <p>{{ cat.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-cats-message">
+                まだ解決した猫さんはいません。引き続きご協力をお願いします！
+            </p>
+        {% endif %}
     </div>
 {% endblock %}

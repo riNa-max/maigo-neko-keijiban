@@ -32,7 +32,7 @@
                     </form>
                 {% else %}
                     <li><a href="{% url 'signup' %}">迷子・保護を捜す</a></li>
-                    <li><a href="resolved_list">解決した子一覧</a></li>
+                    <li><a href="{% url 'resolved_list' %}">解決した子一覧</a></li>
                     <li><a class="report-button" href="{% url 'signup' %}">新規登録する</a></li>
                     <li><a class="report-button2" href="{% url 'login' %}">ログインする</a></li>
                 {% endif %}
