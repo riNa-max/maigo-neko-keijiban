@@ -24,7 +24,13 @@ DEBUG = True
 # ALLOWED_HOSTS = [ALLOWED_HOST]
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "www.nyan-cheese.com", "nyan-cheese.com"]
 
-CSRF_TRUSTED_ORIGINS=["https://maigo-neko-keijiban.onrender.com"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.nyan-cheese.com",
+    "https://nyan-cheese.com",
+]
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
