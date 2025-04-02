@@ -201,7 +201,7 @@ class GenerateLostCatPosterView(View):
         width, height = A4
 
         # QRコードのURLを生成
-        qr_url = f"https://example.com/lost_cat/{lost_cat.id}/"
+        qr_url = f"http://{request.get_host()}/lost-cat/sighting/{lost_cat.id}/report/guest/"
         
         # QRコードを生成
         qr = qrcode.make(qr_url)
@@ -364,7 +364,7 @@ def generate_qr_code(request, lost_cat_id):
     """
     迷子猫ごとの目撃情報入力フォームのQRコードを生成するビュー
     """
-    url = f"http://127.0.0.1:8000/lost-cat/sighting/{lost_cat_id}/report/guest/"
+    url = f"http://{request.get_host()}/lost-cat/sighting/{lost_cat_id}/report/guest/"
     qr = qrcode.make(url)
 
     buffer = BytesIO()
