@@ -299,19 +299,39 @@ class GenerateLostCatPosterView(View):
         p.setFont("Meiryo-Bold", 20)
         p.drawString(414, height - 586, f"{ lost_cat.age_years }歳{ lost_cat.age_months }か月")
 
-        # 特徴
+        # 首輪
         p.setFillColorRGB(0.984, 0.867, 0.247)
-        p.roundRect(41, height - 649, 90, 40, 20, fill=True, stroke=False)
+        p.roundRect(41, height - 654, 90, 40, 20, fill=True, stroke=False)
 
         p.setFillColorRGB(0, 0, 0) 
         p.setFont("Meiryo", 20)
-        p.drawString(66, height - 637, "特徴")
+        p.drawString(66, height - 641, "首輪")
 
         p.setFont("Meiryo-Bold", 20)
-        p.drawString(143, height - 640, f"・{lost_cat.description1}")
-        p.drawString(143, height - 663, f"・{lost_cat.description2}")
-        p.drawString(143, height - 686, f"・{lost_cat.description_collar}")
-        p.drawString(143, height - 709, f"・{lost_cat.description_eye}")
+        p.drawString(143, height - 641, f"{lost_cat.description_collar}")
+
+        # 瞳
+        p.setFillColorRGB(0.984, 0.867, 0.247)
+        p.roundRect(312, height - 654, 90, 40, 20, fill=True, stroke=False)
+
+        p.setFillColorRGB(0, 0, 0) 
+        p.setFont("Meiryo", 20)
+        p.drawString(347.5, height - 641, "瞳")
+
+        p.setFont("Meiryo-Bold", 20)
+        p.drawString(414, height - 641, f"{lost_cat.description_eye}")
+
+        # 特徴
+        p.setFillColorRGB(0.984, 0.867, 0.247)
+        p.roundRect(41, height - 709, 90, 40, 20, fill=True, stroke=False)
+
+        p.setFillColorRGB(0, 0, 0) 
+        p.setFont("Meiryo", 20)
+        p.drawString(66, height - 697, "特徴")
+
+        p.setFont("Meiryo-Bold", 20)
+        p.drawString(143, height - 686, f"・{lost_cat.description1}")
+        p.drawString(143, height - 709, f"・{lost_cat.description2}")
 
         # 注意書き
         p.setFillColorRGB(1, 0.219607843, 0.219607843)

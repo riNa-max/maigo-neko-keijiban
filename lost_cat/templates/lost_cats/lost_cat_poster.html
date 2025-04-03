@@ -18,7 +18,7 @@
             <img src="{% static 'images/poster_sample.png' %}" alt="" class="poster-img">
         </div>
         <div class="btn-download"><a href="{% url 'generate_poster' lost_cat.id %}">ダウンロード</a></div>
-        <div class="btn-edit"><a href="{% url 'myaccount' %}">チラシ内容の編集</a></div>
+        <div class="btn-edit"><a href="{% url 'lost_cat_edit' pk=lost_cat.pk %}">チラシの内容を変更する</a></div>
     </div>
     <div class="btns-container">
         <p class="sub-title">ダウンロード後の印刷方法</p>

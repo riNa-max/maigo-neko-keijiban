@@ -3,7 +3,8 @@
     color: #4B4B4B;
     border-bottom: 1px solid #4B4B4B;
     width: 80%;
-    margin: 40px auto;
+    margin: auto;
+    margin-top: 40px;
 }
 
 /* 詳細box全体 */

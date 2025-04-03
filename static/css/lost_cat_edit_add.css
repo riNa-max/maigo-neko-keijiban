@@ -22,6 +22,11 @@
 .form-container h2 {
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.sub-h2{
+    text-align: center;
     margin-bottom: 50px;
 }
 
@@ -225,17 +230,32 @@ input:focus, select:focus, textarea:focus {
     .form-container h2 {
         text-align: center;
         margin-top: 30px;
+    }
+    .sub-h2{
         margin-bottom: 30px;
+    }
+    /* フォーム全体 */
+    .form-container form{
+        width: 90%;
+        margin: auto;
+    }
+    /* タグ */
+    .required-tag {
+        padding: 3px 5px;
     }
 }
 
 @media (max-width: 430px) {
+    /* フォーム全体のデザイン */
+    .wrapper {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
     /* フォーム全体 */
     .form-container form{
         width: 100%;
         margin: 0;
     }
-
     html,.form-container input, .form-container select, .form-container textarea, .form-container button{
         font-size: 14px;
     }
@@ -250,5 +270,9 @@ input:focus, select:focus, textarea:focus {
     /* ボタン */
     .form-container button{
         margin: 0;
+    }
+    /* 見出し */
+    .form-container h2 {
+        margin-bottom: 5px;
     }
 }

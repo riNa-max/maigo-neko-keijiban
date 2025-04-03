@@ -23,7 +23,7 @@
                     <li><a href="{% url 'home' %}">迷子ねこマニュアル</a></li>
                     <li><a href="{% url 'sighting_list' %}">目撃情報一覧</a></li>
                     {% if lost_cat.id %}
-                        <li><a href="{% url 'lost_cat_poster' lost_cat.id %}">ポスター作成</a></li>
+                        <li><a href="{% url 'lost_cat_poster' lost_cat.id %}">チラシ作成</a></li>
                     {% endif %}
                     <li><a href="{% url 'myaccount' %}">登録情報</a></li>
                     {% if lost_cat %}
