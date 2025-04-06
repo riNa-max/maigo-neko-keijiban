@@ -71,31 +71,7 @@
                 <div>
                     {{ form.photo3 }}
                 </div>
-            </div>
-
-            <p class="info">※いずれかをご入力いただいた場合、後日、飼い主からご連絡をさせていただきます</p>
-
-            <div class="form-group">
-                <label for="{{ form.phone_number.id_for_label }}">
-                    連絡用の電話番号
-                    {% if form.photo.field.required %}
-                        <span class="required-tag">必須</span>
-                    {% else %}
-                        <span class="optional-tag">任意</span>
-                    {% endif %}
-                </label>
-                {{ form.phone_number }}
-                <label for="{{ form.email.id_for_label }}">
-                    連絡用のメールアドレス
-                    {% if form.photo.field.required %}
-                        <span class="required-tag">必須</span>
-                    {% else %}
-                        <span class="optional-tag">任意</span>
-                    {% endif %}
-                </label>
-                {{ form.email }}
-            </div>
-            
+            </div>           
             <button type="submit" class="btn">登録</button>
             <div class="back-btn"><a href="{% url 'sighting_list' %}">戻る</a></div>
         </form>

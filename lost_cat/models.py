@@ -29,9 +29,9 @@ class Lostcat(models.Model):
         on_delete=models.CASCADE, 
         related_name='lost_cat'
     )
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=8)
     lost_datetime = models.DateTimeField(null=True, blank=True)
-    lost_location = models.CharField(max_length=255, blank=True, null=True)
+    lost_location = models.CharField(max_length=18, blank=True, null=True)
     age_years = models.PositiveIntegerField(default=0)
     age_months = models.PositiveIntegerField(default=0)
     sex = models.CharField(
@@ -44,11 +44,11 @@ class Lostcat(models.Model):
         choices=EAR_CHOICES,
         default='not_sakura_cat',
     )
-    description1 = models.TextField(blank=True, null=True)
-    description2 = models.TextField(blank=True, null=True)
+    description1 = models.TextField(max_length=17,blank=True, null=True)
+    description2 = models.TextField(max_length=17,blank=True, null=True)
 
-    description_collar = models.TextField(blank=True, null=True)
-    description_eye = models.TextField(blank=True, null=True)
+    description_collar = models.TextField(max_length=7,blank=True, null=True)
+    description_eye = models.TextField(max_length=6,blank=True, null=True)
 
     photo = models.ImageField(upload_to='photos/', blank=True, null=True)
     photo2 = models.ImageField(upload_to='photos/', blank=True, null=True)
@@ -83,7 +83,6 @@ class SightingReport(models.Model):
         verbose_name="メールアドレス",
         help_text="連絡が必要な場合に備えて、メールアドレスを任意で入力できます"
     )
-
 
     def get_lost_datetime_display(self):
         if self.lost_datetime:

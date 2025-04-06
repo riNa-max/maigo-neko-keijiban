@@ -1,6 +1,7 @@
 from django import forms
 from .models import Lostcat,SightingReport
 from .widgets import DateTimeMultiWidget
+import re
 
 class LostcatForm(forms.ModelForm):
     class Meta:
@@ -12,15 +13,30 @@ class LostcatForm(forms.ModelForm):
             'age_months': forms.Select(choices=[(i, f"{i}ヶ月") for i in range(12)]),
             'lost_datetime': DateTimeMultiWidget(),
             "lost_location": forms.TextInput(attrs={
-                "placeholder": "大阪府大阪市淀川区三国本町１丁目"
-            })
+                "placeholder": "例）大阪府大阪市淀川区三国本町１丁目（最大18文字）",
+                "maxlength": "18"
+            }),
+            "description_collar": forms.TextInput(attrs={
+                "placeholder": "例）青い魚柄（最大7文字）",
+                "maxlength": "7"
+            }),
+            "description_eye": forms.TextInput(attrs={
+                "placeholder": "例）緑色（最大6文字）",
+                "maxlength": "6"    
+            }),
+            "description1": forms.TextInput(attrs={
+                "placeholder": "例）フワフワした鍵しっぽ（最大17文字）",
+                "maxlength": "17"
+            }),
+            "description2": forms.TextInput(attrs={
+                "placeholder": "例）非常にビビりで、家族以外近づかない（最大17文字）",
+                "maxlength": "17"
+            }),
+            "name": forms.TextInput(attrs={
+                "placeholder": "例）ジジ（最大8文字）",
+                "maxlength": "8"
+            }),
         }
-
-    def clean_lost_datetime(self):
-        data = self.cleaned_data.get('lost_datetime')
-        if data is None: 
-            return None
-        return data
 
 class LostSightingForm(forms.ModelForm):
     lost_datetime = forms.DateTimeField(
@@ -28,10 +44,31 @@ class LostSightingForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'type': 'datetime-local'}),
         label="目撃日時"
     )
-    
+
+    def clean_phone_number(self):
+        phone = self.cleaned_data.get('phone_number', '')
+        if phone:
+            pattern = r'^\d{2,4}-?\d{2,4}-?\d{4}$'
+            if not re.match(pattern, phone):
+                raise forms.ValidationError("※電話番号の形式が正しくありません。")
+        return phone
     class Meta:
         model = SightingReport
         fields = ['situation', 'lost_datetime', 'lost_location', 'photo', 'photo2', 'photo3', 'phone_number', 'email']
+        widgets = {
+            "lost_location": forms.TextInput(attrs={
+                "placeholder": "例）〇〇さんの家の裏庭の塀の上"
+            }),
+            "situation": forms.TextInput(attrs={
+                "placeholder": "例）怪我はなく、〇〇さんの軒下の隠れていった"
+            }),
+            'phone_number': forms.TextInput(attrs={
+                'placeholder': '000-0000-0000'
+            }),
+            'email': forms.TextInput(attrs={
+                'placeholder': 'example@example.com'
+            }),
+        }
 
 class ProtectedSightingForm(LostSightingForm):
     pass

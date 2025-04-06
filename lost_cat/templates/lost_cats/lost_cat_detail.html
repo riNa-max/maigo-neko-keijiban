@@ -52,13 +52,19 @@
             <p class="band">性別</p>
             <p>{{ lost_cat.get_sex_display }}</p>
         </div>
+        <div class="description-collar">
+            <p class="band">首輪の特徴</p>
+            <p>{{ lost_cat.description_collar }}</p>
+        </div>
+        <div class="description-eye">
+            <p class="band">瞳の特徴</p>
+            <p>{{ lost_cat.description_eye }}</p>
+        </div>
         <div class="description">
-            <p class="band">特徴</p>
+            <p class="band">特徴（その他）</p>
             <ul>
                 <li>{{ lost_cat.description1 }}</li>
                 <li>{{ lost_cat.description2 }}</li>
-                <li>{{ lost_cat.description_collar }}</li>
-                <li>{{ lost_cat.description_eye }}</li>
             </ul>
         </div>
         <div class="edit-btn"><a href="{% url 'lost_cat_edit' pk=lost_cat.pk %}">編集</a></div>

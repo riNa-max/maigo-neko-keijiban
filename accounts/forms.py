@@ -11,7 +11,7 @@ class AccountUpdateForm(forms.ModelForm):
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'tanaka'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example@example.com'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '090-1234-5678'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '000-0000-0000'}),
         }
         labels = {
             'username': 'ユーザー名',
@@ -25,7 +25,7 @@ class AccountUpdateForm(forms.ModelForm):
     )
     email = forms.CharField(
         label="メールアドレス",
-        widget=forms.TextInput(attrs={"placeholder": "example@gmail.com"}),
+        widget=forms.TextInput(attrs={"placeholder": "example@example.com"}),
         help_text="",
         error_messages={
             'required': "メールアドレスを入力してください。",

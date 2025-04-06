@@ -152,6 +152,11 @@ input:focus, select:focus, textarea:focus {
     text-decoration: underline;
 }
 
+/* エラーメッセージ */
+.text-danger{
+    color: red;
+}
+
 @media (max-width: 1024px) {
     /* フォーム全体のデザイン */
     .wrapper {
