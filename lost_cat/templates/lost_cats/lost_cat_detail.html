@@ -54,17 +54,17 @@
         </div>
         <div class="description-collar">
             <p class="band">首輪の特徴</p>
-            <p>{{ lost_cat.description_collar }}</p>
+            <p>{{ lost_cat.description_collar |default:"未登録" }}</p>
         </div>
         <div class="description-eye">
             <p class="band">瞳の特徴</p>
-            <p>{{ lost_cat.description_eye }}</p>
+            <p>{{ lost_cat.description_eye |default:"未登録" }}</p>
         </div>
         <div class="description">
             <p class="band">特徴（その他）</p>
             <ul>
-                <li>{{ lost_cat.description1 }}</li>
-                <li>{{ lost_cat.description2 }}</li>
+                <li>{{ lost_cat.description1 |default:"未登録" }}</li>
+                <li>{{ lost_cat.description2 |default:"未登録" }}</li>
             </ul>
         </div>
         <div class="edit-btn"><a href="{% url 'lost_cat_edit' pk=lost_cat.pk %}">編集</a></div>
